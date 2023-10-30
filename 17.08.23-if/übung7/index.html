@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <body id="ausgabe"></body>
+    <script>
+      const aus = document.getElementById("ausgabe");
+
+      const neu = document.createElement("button");
+      neu.classList.add("neuButton");
+      neu.innerText = "Neu";
+      neu.addEventListener("click", () => {
+        let wert = prompt("Tippe Zahlen oder Text ein");
+
+        if (
+          wert.charAt(0) == "-" ||
+          wert.charAt(0) == 0 ||
+          wert.charAt(0) == 1 ||
+          wert.charAt(0) == 2 ||
+          wert.charAt(0) == 3 ||
+          wert.charAt(0) == 4 ||
+          wert.charAt(0) == 5 ||
+          wert.charAt(0) == 6 ||
+          wert.charAt(0) == 7 ||
+          wert.charAt(0) == 8 ||
+          wert.charAt(0) == 9
+        ) {
+          wert = parseFloat(wert);
+        }
+
+        if (typeof wert === "number" && wert <= 0) {
+          const b = document.createElement("b");
+          b.classList.add("design");
+          b.style.backgroundColor = "gray";
+          b.style.color = "darkblue";
+          b.innerText = wert;
+          aus.appendChild(b);
+        } else if (typeof wert === "number" || wert > 0) {
+          const u = document.createElement("u");
+          const s = document.createElement("sup");
+          u.classList.add("design");
+          u.style.backgroundColor = "hotpink";
+          u.style.color = "aliceblue";
+          s.innerText = wert;
+          u.appendChild(s);
+          aus.appendChild(u);
+        } else if (typeof wert !== "number") {
+          const d = document.createElement("div");
+          d.classList.add("design2");
+          d.style.backgroundColor = "yellow";
+          d.style.color = "black";
+          d.style.cssText += "border: inset  2px  red";
+          d.innerText = wert;
+          aus.appendChild(d);
+        }
+      });
+      aus.appendChild(neu);
+    </script>
+  </body>
+</html>

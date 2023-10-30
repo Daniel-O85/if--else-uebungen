@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let wert1 = prompt("erste zahl");
+      let wert2 = prompt("zweite zahl");
+
+      if (!isNaN(wert1[0]) || !isNaN(wert2[0])) {
+        wert1 = parseFloat(wert1);
+        wert2 = parseFloat(wert2);
+      }
+      if (
+        typeof wert1 === "number" &&
+        typeof wert2 === "number" &&
+        wert1 >= 0 &&
+        wert1 <= 9 &&
+        wert2 > -1
+      ) {
+        console.log(`${wert1} + ${wert2} = ${wert1 + wert2}`);
+      } else if (
+        typeof wert1 === "number" &&
+        typeof wert2 === "number" &&
+        wert1 < 0 &&
+        wert2 > -1
+      ) {
+        console.log(`${wert1} - ${wert2} = ${wert1 - wert2}`);
+      } else if (typeof wert1 !== "number" && typeof wert1 !== "number") {
+        console.log(`Eingabe 1 lautet ${wert1}`);
+        console.log(`Eingabe 2 lautet ${wert2}`);
+      }
+    </script>
+  </body>
+</html>
